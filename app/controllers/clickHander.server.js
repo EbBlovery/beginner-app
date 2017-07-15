@@ -25,7 +25,7 @@ function clickHander(db){
             }
         })
     };
-    this.addClick = function(res,req){
+    this.addClick = function(req,res){
         clicks.findAndModify({},
         	{ '_id': 1 },
         	{ $inc: {'clicks': 1} },
@@ -37,7 +37,7 @@ function clickHander(db){
             }
         )
     };
-    this.resetClicks = function(res,req){
+    this.resetClicks = function(req,res){
         clicks.update({},
         	          { 'clicks': 0},
         	          function(err,result){
