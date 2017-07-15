@@ -24,6 +24,28 @@ function clickHander(db){
             	})
             }
         })
+    };
+    this.addClick = function(res,req){
+        clicks.findAndModify({},
+        	{ '_id': 1 },
+        	{ $inc: {'clicks': 1} },
+            function(err,result){
+            	if(err){
+            		throw err;
+            	}
+            	res.json(result)
+            }
+        )
+    };
+    this.resetClicks = function(res,req){
+        clicks.update({},
+        	          { 'clicks': 0},
+        	          function(err,result){
+                          if(err){
+                          	throw err;
+                          }
+                          res.json(result)
+        	          })
     }
 }
 

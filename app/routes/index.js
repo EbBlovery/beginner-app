@@ -10,4 +10,6 @@ module.exports = function(app,db){
       });
    app.route('/api/clicks')
       .get(clickHandle.getClicks)
+      .post(clickHandle.addClick)
+      .delete(clickHandle.resetClicks)
 }
